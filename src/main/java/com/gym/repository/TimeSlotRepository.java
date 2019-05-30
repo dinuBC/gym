@@ -34,7 +34,7 @@ public class TimeSlotRepository {
     }
 
     // this method receives as parameter a client ID and returns the number of slots to which he has subscribed
-    public static int clientBookedSlots(int clientID) {
+    public static int clientBookedSlotsInt(int clientID) {
         int numberOfSlots = 0;
         try {
             Set<TimeSlot> dbTimeSlots = TimeSlotRepository.readTimeSlotDB();
@@ -87,6 +87,8 @@ public class TimeSlotRepository {
                 clientSet.add(tempClient);
             }
             tempSlot.setClients(clientSet);
+            //add the temporary TimeSlot to the set that is going to be returned
+            dbTimeSlot.add(tempSlot);
         }
         return dbTimeSlot;
     }

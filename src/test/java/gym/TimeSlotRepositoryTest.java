@@ -43,7 +43,7 @@ public class TimeSlotRepositoryTest {
             Client client4 = new Client();
             Client client5 = new Client();
             client4.setId(87);
-            client5.setId(57);
+            client5.setId(20);
             Set<Client> clientSet2 = new LinkedHashSet<>();
             clientSet2.add(client4);
             clientSet2.add(client5);
@@ -58,4 +58,16 @@ public class TimeSlotRepositoryTest {
         }
     }
 
+    @Test
+    public void clientBookedSlotsInttEST() {
+        int result = TimeSlotRepository.clientBookedSlotsInt(20);
+        System.out.println(result);
+    }
+
+    @Test
+    public void readTimeSlotDBTest() throws IOException {
+        Set<TimeSlot> testSet = new LinkedHashSet<>();
+        testSet = TimeSlotRepository.readTimeSlotDB();
+        System.out.println(testSet.toString());
+    }
 }
